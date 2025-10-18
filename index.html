@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Norman Borlaug - Tributo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        #main {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M10 10h80v80H10z" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+        }
+
+        #title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            opacity: 0.95;
+            position: relative;
+        }
+
+        #img-dev {
+            padding: 40px;
+            background: #f7fafc;
+        }
+
+        .img-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .img-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        #img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        #img-caption {
+            padding: 25px;
+            background: white;
+            font-size: 1rem;
+            color: #4a5568;
+            text-align: center;
+            font-style: italic;
+        }
+
+        #tribute-info {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        #tribute-info h3 {
+            font-size: 2rem;
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        #tribute-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .timeline {
+            list-style: none;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+        }
+
+        .timeline li {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 35px;
+            color: #2d3748;
+        }
+
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #667eea;
+            box-shadow: 0 0 0 3px white;
+        }
+
+        .timeline li strong {
+            color: #667eea;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .quote-section {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 40px;
+            margin: 40px 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .quote-section blockquote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #2d3748;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .quote-section cite {
+            display: block;
+            text-align: right;
+            color: #4a5568;
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 30px;
+            background: #f7fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer h5 {
+            font-size: 1.1rem;
+            color: #4a5568;
+            font-weight: 400;
+        }
+
+        #tribute_link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        #tribute_link:hover {
+            color: #764ba2;
+            border-bottom-color: #764ba2;
+        }
+
+        @media (max-width: 768px) {
+            #title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            #img-dev {
+                padding: 20px;
+            }
+
+            #tribute-info {
+                padding: 40px 20px;
+            }
+
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .timeline li {
+                padding-left: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="header">
+            <h1 id="title">Dr. Norman Borlaug</h1>
+            <p class="subtitle">El hombre que salvó mil millones de vidas</p>
+        </div>
+
+        <div id="img-dev">
+            <div class="img-container">
+                <img src="img1.jpeg" alt="Dr. Norman Borlaug" id="img">
+                <figcaption id="img-caption">
+                    Dr. Borlaug, tercero desde la izquierda, entrenando biólogos en México 
+                    sobre cómo aumentar los rendimientos de trigo - parte de su guerra de toda 
+                    la vida contra el hambre.
+                </figcaption>
+            </div>
+        </div>
+
+        <div id="tribute-info">
+            <h3>Cronología de la vida del Dr. Borlaug</h3>
+            <ul class="timeline">
+                <li><strong>1914</strong> - Nace en Cresco, Iowa</li>
+                <li><strong>1933</strong> - Deja la granja familiar para asistir a la Universidad de Minnesota, gracias a un programa de la era de la Depresión conocido como "National Youth Administration"</li>
+                <li><strong>1935</strong> - Tiene que dejar la escuela y ahorrar más dinero. Trabaja en el Civilian Conservation Corps, ayudando a estadounidenses hambrientos. "Vi cómo la comida los cambiaba", dijo. "Todo esto me dejó cicatrices."</li>
+                <li><strong>1937</strong> - Termina la universidad y acepta un trabajo en el Servicio Forestal de EE.UU.</li>
+                <li><strong>1938</strong> - Se casa con Margaret Gibson, su esposa durante 69 años. Es despedido debido a recortes presupuestarios. Inspirado por Elvin Charles Stakman, regresa a la escuela para estudiar bajo su tutela, quien le enseña sobre el cultivo de plantas resistentes a plagas.</li>
+                <li><strong>1941</strong> - Intenta enlistarse en el ejército después del ataque a Pearl Harbor, pero es rechazado. En su lugar, el ejército le pidió a su laboratorio trabajar en pegamento impermeable, DDT para controlar la malaria, desinfectantes y otras ciencias aplicadas.</li>
+                <li><strong>1942</strong> - Recibe un Doctorado en Genética y Patología Vegetal</li>
+                <li><strong>1944</strong> - Rechaza un aumento de salario del 100% de Dupont, deja atrás a su esposa embarazada y vuela a México para dirigir un nuevo programa de patología vegetal. Durante los siguientes 16 años, su equipo cultiva 6,000 cepas diferentes de trigo resistente a enfermedades, incluyendo diferentes variedades para cada clima importante en la Tierra.</li>
+                <li><strong>1945</strong> - Descubre una forma de cultivar trigo dos veces por temporada, duplicando los rendimientos de trigo</li>
+                <li><strong>1953</strong> - Cruza una variedad enana de trigo corta y robusta con una variedad americana de alto rendimiento, creando una cepa que responde bien a los fertilizantes. Esta termina proporcionando el 95% del trigo de México.</li>
+                <li><strong>1962</strong> - Visita Delhi y lleva sus cepas de trigo de alto rendimiento al subcontinente indio a tiempo para ayudar a mitigar la hambruna masiva debido a una población en rápida expansión</li>
+                <li><strong>1970</strong> - Recibe el Premio Nobel de la Paz</li>
+                <li><strong>1983</strong> - Ayuda a siete países africanos a aumentar drásticamente sus rendimientos de maíz y sorgo</li>
+                <li><strong>1984</strong> - Se convierte en profesor distinguido en Texas A&M University</li>
+                <li><strong>2005</strong> - Declara "tendremos que duplicar el suministro mundial de alimentos para 2050". Argumenta que los cultivos genéticamente modificados son la única forma de satisfacer la demanda, ya que nos estamos quedando sin tierra cultivable. Dice que los cultivos GM no son inherentemente peligrosos porque "hemos estado modificando genéticamente plantas y animales durante mucho tiempo. Mucho antes de que lo llamáramos ciencia, la gente estaba seleccionando las mejores razas."</li>
+                <li><strong>2009</strong> - Muere a la edad de 95 años.</li>
+            </ul>
+        </div>
+
+        <div class="quote-section">
+            <blockquote>
+                "La vida y los logros de Borlaug son testimonio de la contribución de gran alcance 
+                que el intelecto imponente, la persistencia y la visión científica de un hombre 
+                pueden hacer a la paz y el progreso humanos."
+            </blockquote>
+            <cite>— Primer Ministro de India Manmohan Singh</cite>
+        </div>
+
+        <div class="footer">
+            <h5>
+                Si tienes tiempo, deberías leer más sobre este increíble ser humano en su 
+                <a id="tribute_link" target="_blank" href="https://en.wikipedia.org/wiki/Norman_Borlaug">
+                    entrada de Wikipedia
+                </a>.
+            </h5>
+        </div>
+    </div>
+</body>
+</html>
